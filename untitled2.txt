@@ -1,0 +1,32 @@
+Homework 3 Haley Massa Read Me File
+=================
+
+Third homework assignment for computer vision Spring 2020.
+
+Files Included: 
+===============
+runHw3.m
+honesty.m
+hw3_walkthrough1.m
+generateHoughAccumulator.m
+lineFinder.m
+lineSegmentFinder.m 
+saveAnnotatedImg.m
+
+
+===============
+Discuss generateHoughAccumulator.m : 
+
+In this file, I work to generate a hough accumulator. 
+I am converting to polar coordinates like the notes using the equation: 
+You are right that you can get some base point at the line as
+(X0, Y0) = (rho * cos(theta), rho * sin(theta))
+With this I am able to find a voting function for a line (and my voting function), that 
+uses these new polar coordinates. I also want to take into account the perpendicular line.
+With help from Wikipedia, I found that the radial line perpendicular to the point has the equation:
+ r(?) = r0 * sec(? - ?).
+If ro and ? are the coordinates for our line, I get the equation: 
+r(?) * cos(?) * cos(?) + r(?) * sin(?) * sin(?) - r0 = 0
+And so the equation for the line becomes: 
+x * cos(?) + y * sin(?) - r0 = 0
+Using the notes for line detector from the class, however, 
